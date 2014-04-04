@@ -2,10 +2,7 @@
 <!-- saved from url=(0055)http://www.guillaumeriviere.name/efrei/tp2-3.php?bits64 -->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr-FR" xml:lang="fr-FR"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  
-<link href="./TP2-3  Module programming and webservices_files/style2010-b2.css" rel="stylesheet" type="text/css" media="screen" title="screen1">
-<link href="./TP2-3  Module programming and webservices_files/style2010-wkit.css" rel="stylesheet" type="text/css" media="screen" title="screen1">
-<title>TP2-3: Module programming and webservices</title>
-<script type="text/javascript" src="./TP2-3  Module programming and webservices_files/unhide.js"></script><style type="text/css"></style><script type="text/javascript" src="./TP2-3  Module programming and webservices_files/minimum.js"></script></head>
+
 <body>
 <div id="body" style="width: 90%;">
 <div id="entete" class="curved" style="padding: 20px; font-size: 16px;">
@@ -14,20 +11,20 @@
 </div>
 <div id="corpsPage" class="corps" style="padding: 20px 50px 30px;">
 <p class="objectif"><img class="fluxL" src="./TP2-3  Module programming and webservices_files/objectif.png" alt="&#9830;"> The aim of this work is to learn basis of module development, using OpenERP, through a single and (quite) complete example. After several progressive steps, you will obtain a new module for the management of a second hand cars garage. The starting point is a nearly empty module, displaying a simple car brands list. Each exercise guides you in order to complete the module. The objective to reach is the management of car brands, car models, and the state of the second hand cars of a garage.<br class="flux"></p>
-<p>With the following exercises, we are going to learn how module are made through a simple example. Also, one should know that one of the simpliest module of OpenERP is the «Idea» module (present in official modules). However, our starting point is going to be even simplier than this module to manage innovative ideas in a company.</p>
-<p>A module describing cars (brands, models, …) already exist among the official modules of OpenERP: it is called «Fleet». A good way to do things for experts could be, to develop our module, building it by reusing the classes of «Fleet». But we are not going to do that because we are here to learn, step by step, how modules are made.</p>
+<p>With the following exercises, we are going to learn how module are made through a simple example. Also, one should know that one of the simpliest module of OpenERP is the ï¿½Ideaï¿½ module (present in official modules). However, our starting point is going to be even simplier than this module to manage innovative ideas in a company.</p>
+<p>A module describing cars (brands, models, ï¿½) already exist among the official modules of OpenERP: it is called ï¿½Fleetï¿½. A good way to do things for experts could be, to develop our module, building it by reusing the classes of ï¿½Fleetï¿½. But we are not going to do that because we are here to learn, step by step, how modules are made.</p>
 <p>Online documentation of the developper for OpenERP, maintained by OpenERP community, can be found at:<br> <a href="http://doc.openerp.com/trunk/developers/server/03_module_dev/">http://doc.openerp.com/trunk/developers/server/03_module_dev/</a></p>
 <p>The technical memento, published by Open Object Press and edited by OpenERP S.A., is also a good help for the developper:<br> <a href="http://anybox.fr/docs/openerp-technical-memento-0.6.5-a4/at_download/file">OpenERP_Technical_Memento_v0.6.5_A4_nondraft.pdf</a></p>
-<h2>Exercise 1 • Car brands list<a name="exo1"> </a></h2>
+<h2>Exercise 1 ï¿½ Car brands list<a name="exo1"> </a></h2>
 <p>As we did during TP1, start the Debian virtual machine and log in with <span class="bold warn">riesling</span> user</p>
 <h3>1.1 Install and run the Idea module</h3>
 <ol>
  <li>Start <kbd>openerp-server</kbd> (as we did during TP1)</li>
  <li>Run Iceweasel web browser, and go at OpenERP login page.
 <ul>
- <li>Create a new database, and <span class="underline">don't forget</span> to check the option «&nbsp;Load demonstration data&nbsp;» <img class="button" src="./TP2-3  Module programming and webservices_files/b_checked.png" alt=""></li>
- <li><span class="warn">Activate the «&nbsp;Technical Features&nbsp;»</span> in the access rights of the Administrator user.</li>
- <li>Install the module «Idea».</li>
+ <li>Create a new database, and <span class="underline">don't forget</span> to check the option ï¿½&nbsp;Load demonstration data&nbsp;ï¿½ <img class="button" src="./TP2-3  Module programming and webservices_files/b_checked.png" alt=""></li>
+ <li><span class="warn">Activate the ï¿½&nbsp;Technical Features&nbsp;ï¿½</span> in the access rights of the Administrator user.</li>
+ <li>Install the module ï¿½Ideaï¿½.</li>
  <li>For the access rights of the Administrator, <span class="warn">add him as a user of Extra Tools</span> and then <span class="bold">reload</span> the page.</li>
  <li>Explore the Idea module (available from the Tool main menu) and create new ideas and categories.</li>
 </ul>
@@ -53,7 +50,7 @@
  <li>Then, restart <kbd>openerp-server</kbd></li>
  <li>Go back to OpenERP client, and go at <span class="underline">Settings</span> &gt; <span class="underline">Update Modules List</span> and click the update button.
 <ul>
- <li>Now, install the module «Second Hand Cars» and explore its views.</li>
+ <li>Now, install the module ï¿½Second Hand Carsï¿½ and explore its views.</li>
  <li>Observe the two possible view modes (list and form) for the brands.</li>
  <li>In these 2 views, observe the fields which are displayed for the brands.</li>
  <li>Try to create a new brand.</li>
@@ -96,7 +93,7 @@
 <p class="italic">Note: during all these steps, you don't need to close or to log out OpenERP client. You can keep opened OpenERP page in you web browser. It will not be a problem to continue navigation once the server has restarted.</p>
 </div>
 <p>Once the installation succeeds, try to create of a new brand.</p>
-<h2>Exercise 2 • Car models list (version 2)<a name="exo2"> </a></h2>
+<h2>Exercise 2 ï¿½ Car models list (version 2)<a name="exo2"> </a></h2>
 <h3>2.1 Create a new OpenERP model and associated views</h3>
 <p>You are going to create a new Python class for the car models.</p>
 <img class="margin" src="./TP2-3  Module programming and webservices_files/diagram_model_model.png" alt="Car models model diagram">
@@ -120,7 +117,7 @@
 <img class="margin" src="./TP2-3  Module programming and webservices_files/diagram_view_model.png" alt="Car models view diagram">
 <p>To test your modifications, stop and restart server again.</p>
 <p>When re-installation succeeds, create a new car model using the form.</p>
-<h2>Exercise 3 • Second hand cars list (version 3)<a name="exo3"> </a></h2>
+<h2>Exercise 3 ï¿½ Second hand cars list (version 3)<a name="exo3"> </a></h2>
 <h3>3.1 Create a new OpenERP model and associated views</h3>
 <p>You are going to create a new Python class for the cars of the garage.</p>
 <img class="margin" src="./TP2-3  Module programming and webservices_files/diagram_model_cars.png" alt="Cars model diagram">
@@ -174,8 +171,8 @@
  <li>Group cars by energy</li>
 </ol>
 <p>Once again, don't forget to stop, restart, re-install and test your module. Try each of the filters you have created. Adding some new and different car models may help you to validate your filters.</p>
-<h2>Exercise 4 • Communication by webservice<a name="exo4"> </a></h2>
-<p>OpenERP webservices, thought XML-RPC, allows one to call methods of the ORM in order to create, read, write, search and delete records form a remote program, written in any programming language with XML-RPC support (C, C++, Java, PHP, Javascript, Python, Perl, …).</p>
+<h2>Exercise 4 ï¿½ Communication by webservice<a name="exo4"> </a></h2>
+<p>OpenERP webservices, thought XML-RPC, allows one to call methods of the ORM in order to create, read, write, search and delete records form a remote program, written in any programming language with XML-RPC support (C, C++, Java, PHP, Javascript, Python, Perl, ï¿½).</p>
 <h3>4.1 Test asking OpenERP webservices from a Python script</h3>
 <p>Download the script <a href="http://www.guillaumeriviere.name/efrei/create.py">create.py</a></p>
 <p>Open it with gedit and:</p>
@@ -223,9 +220,9 @@
 <p>Now, we would like to display, on the web site, the list (with the immatriculation, km_in and price of the car) all the second hand cars powered by diesel available in the company.</p>
 <p>So, you have to write a web page showing this list.</p>
 <p class="italic">(This work requires the relation secondhandcars.cars (from exercise 3) to be finished. If it is not finished, then just show the list of the brands the company is working with, i.e. the records of secondhandcars.brands)</p>
-<h2>Exercise 5 • Workflow: states and transitions (version 4)<a name="exo5"> </a></h2>
-<p>The workflow engine allows to describe the evolution of documents (model) in time. According to the processing flow and trade logic of the company, some actions can be automatically trigerred by the workflow engine. The workflow mechanism can also help to describe interactions of the document with different actors of the company (e.g. validation steps…), or again to manage interactions between different modules</p>
-<p>A classical workflow diagram for OpenERP business objects is the one of the «Idea» module, as follow:</p>
+<h2>Exercise 5 ï¿½ Workflow: states and transitions (version 4)<a name="exo5"> </a></h2>
+<p>The workflow engine allows to describe the evolution of documents (model) in time. According to the processing flow and trade logic of the company, some actions can be automatically trigerred by the workflow engine. The workflow mechanism can also help to describe interactions of the document with different actors of the company (e.g. validation stepsï¿½), or again to manage interactions between different modules</p>
+<p>A classical workflow diagram for OpenERP business objects is the one of the ï¿½Ideaï¿½ module, as follow:</p>
 <img src="./TP2-3  Module programming and webservices_files/workflow_diagram_1.png" alt="Classical Workflow Diagram">
 <p>This workflow is defined at different points in the Idea module:</p>
 <ul>
