@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="workflow" id="wkf_secondhandcars">
+            <field name="name">secondhandcars.wkf</field>
+            <field name="osv">secondhandcars.car</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record model="workflow.activity" id="act_draft">
+            <field name="wkf_id" ref="wkf_secondhandcars" />
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">secondhandcars_draft()</field>
+        </record>
+
+        <record model="workflow.activity" id="act_repaired">
+            <field name="wkf_id" ref="wkf_secondhandcars" />
+            <field name="name">repaired</field>
+            <field name="kind">function</field>
+            <field name="action">secondhandcars_repaired()</field>
+        </record>
+
+        <record model="workflow.activity" id="act_ready">
+            <field name="wkf_id" ref="wkf_secondhandcars" />
+            <field name="name">ready</field>
+            <field name="kind">function</field>
+            <field name="action">secondhandcars_ready()</field>
+            <field name="flow_stop">True</field>
+        </record>
+
+        <record model="workflow.activity" id="act_cancel">
+            <field name="wkf_id" ref="wkf_secondhandcars" />
+            <field name="name">cancel</field>
+            <field name="kind">function</field>
+            <field name="action">secondhandcars_cancel()</field>
+            <field name="flow_stop">True</field>
+        </record>
+	<record model="workflow.activity" id="act_sold">
+            <field name="wkf_id" ref="wkf_secondhandcars" />
+            <field name="name">sold</field>
+            <field name="kind">function</field>
+            <field name="action">secondhandcars_sold()</field>
+            <field name="flow_stop">True</field>
+        </record>
+        <record model="workflow.transition" id="t1">
+            <field name="act_from" ref="act_draft" />
+            <field name="act_to" ref="act_repaired" />
+            <field name="signal">idea_repaired</field>
+        </record>
+
+        <record model="workflow.transition" id="t2">
+            <field name="act_from" ref="act_repaired" />
+            <field name="act_to" ref="act_ready" />
+            <field name="signal">idea_ready</field>
+        </record>
+	<record model="workflow.transition" id="t3">
+            <field name="act_from" ref="act_ready" />
+            <field name="act_to" ref="act_sold" />
+            <field name="signal">idea_sold</field>
+        </record>
+        <record model="workflow.transition" id="t4">
+            <field name="act_from" ref="act_ready" />
+            <field name="act_to" ref="act_cancel" />
+            <field name="signal">idea_cancel</field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <!-- Brand: Form View -->
+    <record model="ir.ui.view" id="view_secondhandcars_brand_form">
+      <field name="name">secondhandcars.brand.form</field>
+      <field name="model">secondhandcars.brand</field>
+      <field name="arch" type="xml">
+	<form string="Brands of cars" version="7.0">
+	  <field name="name"/>
+	  <field name="international website"/>
+	  <field name="local website"/>
+	</form>
+      </field>
+    </record>
+	<!-- Model: Form View -->
+    <record model="ir.ui.view" id="view_secondhandcars_model_form">
+      <field name="name">secondhandcars.model.form</field>
+      <field name="model">secondhandcars.model</field>
+      <field name="arch" type="xml">
+	<form string="Models of cars" version="7.0">
+	  <field name="name"/>
+	  <field name="brand_id"/>
+	  <field name="last_year"/>
+	</form>
+      </field>
+    </record>
+<!-- Car: Form View -->
+    <record model="ir.ui.view" id="view_secondhandcars_car_form">
+      <field name="name">secondhandcars.car.form</field>
+      <field name="model">secondhandcars.car</field>
+      <field name="arch" type="xml">
+	<form string="cars" version="7.0">
+	   <field name="create_uid"/>
+	  <field name="immatriculation"/>
+	  <field name="model_ids"/>
+      <field name="km_in"/>
+      <field name="km_out"/>
+      <field name="price"/>
+      <field name="doors"/>
+      <field name="seats"/>
+      <field name="engine"/>
+	</form>
+      </field>
+    </record>
+
+ <!-- Model: Search View-->
+    <record model="ir.ui.view" id="view_secondhandcars_model_search">
+        <field name="name">secondhandcars.model.search</field>
+        <field name="model">secondhandcars.model</field>
+        <field name="arch" type="xml">
+            <search string="Model name">
+                <field name="name" string="name"/>
+            </search>
+        </field>
+    </record>
+
+<!-- Car: Search View-->
+    <record model="ir.ui.view" id="view_secondhandcars_model_search">
+        <field name="name">secondhandcars.car.search</field>
+        <field name="model">secondhandcars.car</field>
+        <field name="arch" type="xml">
+            <search string="Car name">
+                <field name="immatriculation" string="immatriculation"/>
+            </search>
+        </field>
+    </record>
+    <!-- Brand: Tree View -->
+    <record model="ir.ui.view" id="view_secondhandcars_brand_tree">
+      <field name="name">secondhandcars.brand.tree</field>
+      <field name="model">secondhandcars.brand</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+	<tree string="Brands of cars">
+	  <field name="name"/>
+	  <field name="international website"/>
+	  <field name="local website"/>
+	</tree>
+      </field>
+    </record>
+	<!-- Model: Tree View -->
+    <record model="ir.ui.view" id="view_secondhandcars_model_tree">
+      <field name="name">secondhandcars.model.tree</field>
+      <field name="model">secondhandcars.model</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+	<tree string="Models of cars">
+	  <field name="name"/>
+	  <field name="brand_id"/>
+	  <field name="last_year"/>
+	</tree>
+      </field>
+    </record>
+<!-- Car: Tree View -->
+    <record model="ir.ui.view" id="view_secondhandcars_car_tree">
+      <field name="name">secondhandcars.car.tree</field>
+      <field name="model">secondhandcars.car</field>
+      <field name="field_parent"></field>
+      <field name="arch" type="xml">
+	<tree string="cars">
+	  <field name="create_uid"/>
+	  <field name="immatriculation"/>
+	  <field name="model_ids"/>
+	  <field name="km_in"/>
+      <field name="km_out"/>
+      <field name="price"/>
+      <field name="doors"/>
+      <field name="seats"/>
+       <field name="engine"/>
+	</tree>
+      </field>
+    </record>
+
+    <!-- Brand: Action -->
+    <record model="ir.actions.act_window" id="action_secondhandcars_brand">
+      <field name="name">Brands</field>
+      <field name="res_model">secondhandcars.brand</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+<!-- Model: Action -->
+    <record model="ir.actions.act_window" id="action_secondhandcars_model">
+      <field name="name">Models</field>
+      <field name="res_model">secondhandcars.model</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+<!-- Car: Action -->
+    <record model="ir.actions.act_window" id="action_secondhandcars_car">
+      <field name="name">Cars</field>
+      <field name="res_model">secondhandcars.car</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="Second Hand Cars" id="base.menu_secondhandcars_root" sequence="120" groups="base.group_user"/>
+
+    <!-- Menu sections -->
+    <menuitem name="Cars" id="menu_secondhandcars_cars" parent="base.menu_secondhandcars_root" sequence="1"/>
+    <menuitem name="Configuration" id="menu_secondhandcars_configuration" parent="base.menu_secondhandcars_root" sequence="2"/>
+
+    <!-- Menu items -->
+    <menuitem name="Brands" id="menu_brand" parent="menu_secondhandcars_configuration" action="action_secondhandcars_brand" sequence="1"/>
+<menuitem name="Models" id="menu_model" parent="menu_secondhandcars_configuration" action="action_secondhandcars_model" sequence="2"/>
+<menuitem name="Cars" id="menu_car" parent="menu_secondhandcars_configuration" action="action_secondhandcars_car" sequence="3"/>
+
+<!-- Search model  -->
+    <record model="ir.ui.view" id="view_secondhandcars_model_search">
+        <field name="name">secondhandcars.model.search</field>
+        <field name="model">secondhandcars.model</field>
+        <field name="arch" type="xml">
+            <search string="Models">
+                <field name="name" string="Models"/>
+                <filter icon="terp-document-new" string="In production" domain="[('last_year','!=', 'null')]" help="in production"/>
+                <filter icon="terp-camera_test" string="No more in production" domain="[('last_year','=;', 'null')]" help="No more in production"/>
+                <group expand="0" string="Group By...">
+                    <filter icon="terp-personal" string="Creator" help="By car brand" context="{'group_by':'brand_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+<!-- Search car  -->
+ <record model="ir.ui.view" id="view_secondhandcars_car_search">
+        <field name="name">secondhandcars.car.search</field>
+        <field name="model">secondhandcars.car</field>
+        <field name="arch" type="xml">
+            <search string="Cars">
+                <field name="immatriculation" string="immatriculation"/>
+                <filter icon="terp-document-new" string="Sold" domain="[('price','!=', 'null')]" help="Sold"/>
+                <filter icon="terp-camera_test" string="Not Sold" domain="[('price','=', 'null')]" help="Not Sold"/>
+                <group expand="0" string="Group By...">
+                    <filter icon="terp-personal" string="Model" help="By Models" context="{'group_by':'model_ids'}"/>
+                    <filter icon="terp-stock_effects-object-colorize" string="Engine" help="By Engine" context="{'group_by':'Engine'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+  </data>
+</openerp>

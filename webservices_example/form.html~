@@ -1,0 +1,63 @@
+<html>
+<head><title>Test OpenERP 7.0 webservices</title></head>
+<body>
+<h1>Test OpenERP 7.0 webservices</h1>
+
+<hr/>
+
+<h2>Create example</h2>
+
+<form action="create_example.php" method="get" id="form_create">
+  <p>Name of the new category to create: <input type="textfield" name="new_category" /></p>
+  <input type="submit" />
+</form>
+
+<hr/>
+
+<h2>Search example</h2>
+
+<form action="search_example.php" method="get" id="form_search">
+  <p>Search ideas in the state
+    <select name="state_val">
+      <option value="draft">New</option>
+      <option value="open">Openned</option>
+      <option value="close">Accepted</option>
+      <option value="cancel">Refused</option>
+    </select>
+  </p>    
+  <input type="submit" />
+</form>
+
+<hr/>
+
+<h2>Read example</h2>
+
+<form action="read_example.php" method="get" id="form_read">
+  <p>Id of the first idea to read: <input type="textfield" name="id1" /></p>
+  <p>Id of the second idea to read: <input type="textfield" name="id2" /></p>
+  <input type="submit" />
+</form>
+
+<hr/>
+
+<h2>Write example</h2>
+
+<form action="write_example.php" method="get" id="form_write">
+  <p>Id of the idea to edit: <input type="textfield" name="id" /></p>
+  <p>New name to give: <input type="textfield" name="new_name" /></p>
+  <input type="submit" />
+</form>
+
+<hr/>
+
+<h2>Unlink example</h2>
+
+<form action="unlink_example.php" method="get" id="form_unlink">
+  <p>Id of the idea to delete: <input type="textfield" name="id" /></p>
+  <input type="submit" />
+</form>
+
+<hr/>
+
+</body>
+</html>
